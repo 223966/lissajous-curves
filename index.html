@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Lissajous</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="canvas" width="500" height="500"> </canvas>
+      <div class="gui-container">
+        <div class="range-input">
+          <input
+            type="range"
+            min="-5"
+            max="5"
+            value="2.483"
+            step="0.0001"
+            name="a"
+            oninput="update(this)"
+          />
+          <label name="a">a = 2.483</label>
+        </div>
+        <div class="range-input">
+          <input
+            type="range"
+            min="0"
+            max="1.4915"
+            value="1"
+            step="0.0001"
+            name="b"
+            oninput="update(this)"
+          />
+          <label name="b">b = 1.4915</label>
+        </div>
+        <div class="range-input">
+          <input
+            type="range"
+            min="1"
+            max="4"
+            value="2"
+            step="1"
+            name="delta"
+            oninput="update(this)"
+          />
+          <label name="delta">delta = PI / 2</label>
+        </div>
+      </div>
+    </div>
+    <script src="lissajous.js"></script>
+  </body>
+</html>
