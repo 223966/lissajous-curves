@@ -17,7 +17,7 @@
 
     <title>Lissajous</title>
   </head>
-  <body>
+  <body class="dark-mode">
     <div class="app-container">
       <canvas id="canvas" width="500" height="500"> </canvas>
       <div class="gui-container">
@@ -58,6 +58,27 @@
             oninput="update(this)"
           />
           <label name="delta">delta = PI / 2</label>
+        </div>
+        <div>
+          <input
+            type="color"
+            id="plot"
+            value="#d753f5"
+            oninput="changeColor(this.value)"
+          />
+          <label>Plot color</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="darkModeCheckbox"
+            checked
+            oninput="toggleDarkMode()"
+          />
+          <label class="custom-control-label" for="darkModeCheckbox"
+            >Dark Mode</label
+          >
         </div>
       </div>
     </div>

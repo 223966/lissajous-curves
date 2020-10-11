@@ -3,9 +3,17 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+.light-mode {
+  background-color: #f0f0f0 !important;
+  color: black !important;
+}
+
+.dark-mode {
   background-color: black !important;
   color: #f0f0f0 !important;
-  font-family: "Quicksand", sans-serif;
 }
 
 .app-container {
@@ -22,9 +30,16 @@ body {
 
 .gui-container {
   display: grid;
-  grid-template-rows: 30px 30px 50px 50px 50px;
   grid-gap: 1em;
   padding: 25px;
+}
+
+input[type="color"]:hover {
+  cursor: pointer;
+}
+
+input:hover {
+  cursor: pointer;
 }
 
 .bold {

@@ -4,8 +4,7 @@ const OFFSET = 250;
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
-context.strokeStyle = "#f0f0f0";
-context.fillStyle = "#f0f0f0";
+context.fillStyle = "#d753f5";
 context.lineWidth = 4;
 
 let x = 0;
@@ -55,6 +54,22 @@ function updateEquations() {
   equations.forEach((label) => label.classList.add("bold"));
   xLabel.innerHTML = `x = sin(${a}*t*${delta})`;
   yLabel.innerHTML = `y = sin(${b}*t)`;
+}
+
+function changeColor(color) {
+  context.fillStyle = color;
+  draw();
+}
+
+function toggleDarkMode() {
+  const isDarkModeEnabled = document.body.classList.contains("dark-mode");
+  if (isDarkModeEnabled) {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+  } else {
+    document.body.classList.remove("light-mode");
+    document.body.classList.add("dark-mode");
+  }
 }
 
 updateEquations();
