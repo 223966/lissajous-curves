@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
       rel="stylesheet"
     />
@@ -12,9 +18,11 @@
     <title>Lissajous</title>
   </head>
   <body>
-    <div class="container">
+    <div class="app-container">
       <canvas id="canvas" width="500" height="500"> </canvas>
       <div class="gui-container">
+        <label id="x" class="equation"></label>
+        <label id="y" class="equation"></label>
         <div class="range-input">
           <input
             type="range"

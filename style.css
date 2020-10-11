@@ -3,12 +3,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
-  color: #f0f0f0;
+  background-color: black !important;
+  color: #f0f0f0 !important;
   font-family: "Quicksand", sans-serif;
 }
 
-.container {
+.app-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5em;
@@ -22,7 +22,11 @@ body {
 
 .gui-container {
   display: grid;
-  grid-template-rows: 50px 50px;
+  grid-template-rows: 30px 30px 50px 50px 50px;
   grid-gap: 1em;
   padding: 25px;
+}
+
+.bold {
+  font-weight: bold;
 }

@@ -31,8 +31,8 @@ function clear() {
 
 function update(element) {
   const elements = document.getElementsByName(element.name);
-  const label = Array.from(elements).find((e) => e.tagName === "LABEL");
-  const input = Array.from(elements).find((e) => e.tagName === "INPUT");
+  let label = Array.from(elements).find((e) => e.tagName === "LABEL");
+  let input = Array.from(elements).find((e) => e.tagName === "INPUT");
   if (element.name === "a") a = input.value;
   if (element.name === "b") b = input.value;
   if (element.name === "delta") delta = Math.PI / input.value;
@@ -42,8 +42,19 @@ function update(element) {
   if (element.name === "delta") {
     label.innerHTML = `${element.name} = PI / ${input.value}`;
   }
+  updateEquations();
   clear();
   draw();
 }
 
+function updateEquations() {
+  const equations = Array.from(document.getElementsByClassName("equation"));
+  let xLabel = equations.find((e) => e.id === "x");
+  let yLabel = equations.find((e) => e.id === "y");
+  equations.forEach((label) => label.classList.add("bold"));
+  xLabel.innerHTML = `x = sin(${a}*t*${delta})`;
+  yLabel.innerHTML = `y = sin(${b}*t)`;
+}
+
+updateEquations();
 draw();
