@@ -5,6 +5,7 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 context.strokeStyle = "#f0f0f0";
+context.fillStyle = "#f0f0f0";
 context.lineWidth = 4;
 
 let x = 0;
@@ -20,7 +21,7 @@ function draw() {
   for (let t = 0.0; t < 15; t += 0.1) {
     x = Math.sin(a * t + delta) * SCALE + OFFSET;
     y = Math.sin(b * t) * SCALE + OFFSET;
-    context.lineTo(x, y);
+    context.fillRect(x, y, 5, 5);
     context.stroke();
   }
 }
