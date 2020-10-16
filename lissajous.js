@@ -5,7 +5,10 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 context.fillStyle = "#d753f5";
-context.lineWidth = 4;
+context.strokeStyle= "#d753f5";
+context.lineWidth = 3;
+
+let showLines = false;
 
 let x = 0;
 let y = 0;
@@ -17,11 +20,11 @@ let delta = Math.PI / 2;
 function draw() {
   context.beginPath();
   context.moveTo(x, y);
-  for (let t = 0.0; t < 15; t += 0.1) {
+  for (let t = 0.0; t < 30; t += 0.1) {
     x = Math.sin(a * t + delta) * SCALE + OFFSET;
     y = Math.sin(b * t) * SCALE + OFFSET;
-    context.fillRect(x, y, 5, 5);
-    context.stroke();
+    showLines ? context.fillRect(x, y, 5, 5) : context.lineTo(x, y);
+    context.stroke()
   }
 }
 
@@ -30,18 +33,21 @@ function clear() {
 }
 
 function update(element) {
-  const elements = document.getElementsByName(element.name);
-  let label = Array.from(elements).find((e) => e.tagName === "LABEL");
-  let input = Array.from(elements).find((e) => e.tagName === "INPUT");
-  if (element.name === "a") a = input.value;
-  if (element.name === "b") b = input.value;
-  if (element.name === "delta") delta = Math.PI / input.value;
-  if (element.name === "a" || element.name === "b") {
-    label.innerHTML = `${element.name} = ${input.value}`;
+  if (element) {
+    const elements = document.getElementsByName(element.name);
+    let label = Array.from(elements).find((e) => e.tagName === "LABEL");
+    let input = Array.from(elements).find((e) => e.tagName === "INPUT");
+    if (element.name === "a") a = input.value;
+    if (element.name === "b") b = input.value;
+    if (element.name === "delta") delta = Math.PI / input.value;
+    if (element.name === "a" || element.name === "b") {
+      label.innerHTML = `${element.name} = ${input.value}`;
+    }
+    if (element.name === "delta") {
+      label.innerHTML = `${element.name} = PI / ${input.value}`;
+    }
   }
-  if (element.name === "delta") {
-    label.innerHTML = `${element.name} = PI / ${input.value}`;
-  }
+  
   updateEquations();
   clear();
   draw();
@@ -70,6 +76,11 @@ function toggleDarkMode() {
     document.body.classList.remove("light-mode");
     document.body.classList.add("dark-mode");
   }
+}
+
+function toggleLines() {
+  showLines = !showLines;
+  update();
 }
 
 updateEquations();
